@@ -7,6 +7,8 @@ yoshida.keiji.84@gmail.com
 http://yoss.si/
 @_yosssi
 
+* Self Introduction
+
 * About Me
 
 - Keiji Yoshida
@@ -16,6 +18,17 @@ http://yoss.si/
 
 .image 0220-good-package/keiji_yoshida.jpg
 
-* Go Experience
+* Experience of Go
 
 - Started using Go in the beginning of 2014
+- [[https://github.com/martini-contrib][Became a contributor]] to [[http://martini.codegangsta.io/][Martini]] which is a WAF for Go in April 2014
+- [[http://slides.yoss.si/gocon/martini.html#/][Gave a presentation about Martini]] at [[http://connpass.com/event/6370/][Go Conference 2014 spring]] in Tokyo in May 2014
+- Created some packages for building a web application in Go
+.link https://github.com/yosssi/ace Ace - HTML template engine for Go
+.link https://github.com/yosssi/gcss GCSS - Pure Go CSS Preprocessor
+
+* Goal
+
+* To share my knowledge of creating 
+
+* Target
