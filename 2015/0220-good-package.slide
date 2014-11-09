@@ -92,13 +92,13 @@ Only identifiers which are needed to be exported should be exported.
 
 .code 0220-good-package/export_identifiers_ok.go /START OMIT/,/END OMIT/
 
-* Use Options struct as a parameter
+* Use Options struct as a parameter 1/4
 
 Suppose we defined a `Dog` struct and its construct function as following:
 
 .code 0220-good-package/options_ng1.go /START OMIT/,/END OMIT/
 
-* Use Options struct as a parameter
+* Use Options struct as a parameter 2/4
 
 If we need to add an `age` field to the `Dog` struct, we have to a new function as below:
 
@@ -106,13 +106,13 @@ If we need to add an `age` field to the `Dog` struct, we have to a new function 
 
 We can not change the `NewDog` function's signature because it has beed exported.
 
-* Use Options struct as a parameter
+* Use Options struct as a parameter 3/4
 
 After the repetition of this kind of modification, a nightmare comes:
 
 .code 0220-good-package/options_ng3.go /START OMIT/,/END OMIT/
 
-* Use Options struct as a parameter
+* Use Options struct as a parameter 4/4
 
 We can avoid adding a new function when a new field is added by using Options struct.
 
