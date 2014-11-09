@@ -9,8 +9,7 @@ type Dog struct {
 
 func NewDog(name string) *Dog {
 	d := &Dog{name: name}
-	// Some initialization processes go here.
-	return d
+	return d // Some initialization might be done before returning `d`.
 }
 
 func main() {

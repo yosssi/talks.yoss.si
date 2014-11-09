@@ -100,7 +100,7 @@ Suppose we defined a `Dog` struct and its construct function as following:
 
 * Use Options struct as a parameter 2/4
 
-If we need to add an `age` field to the `Dog` struct, we have to a new function as below:
+If we need to add an `age` field to the `Dog` struct, we have to create a new function:
 
 .code 0220-good-package/options_ng2.go /START OMIT/,/END OMIT/
 

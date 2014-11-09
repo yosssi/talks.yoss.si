@@ -15,8 +15,7 @@ func (d *Dog) SetAge(age int) *Dog { // HL
 
 func NewDog(name string) *Dog {
 	d := &Dog{name: name}
-	// Some initialization processes go here.
-	return d
+	return d // Some initialization might be done before returning `d`.
 }
 
 func main() {
