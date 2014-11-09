@@ -79,3 +79,9 @@ goimports also organize import lines in groups with blank lines between them. Th
       "code.google.com/p/x/y"
       "github.com/foo/bar"
   )
+
+* To make a Go package extensible
+
+* Export identifiers only which are needed to be so
+
+We should not export all identifiers because exported identifiers are hard to be modified.
