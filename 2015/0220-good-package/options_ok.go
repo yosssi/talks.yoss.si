@@ -16,8 +16,7 @@ func NewDog(opts *Options) *Dog { // HL
 		opts := &Options{} // HL
 	} // HL
 	d := &Dog{name: opts.Name} // HL
-	// Some initialization processes go here. // HL
-	return d // Some initialization might be done before returning `d`. // HL
+	return d                   // Some initialization might be done before returning `d`. // HL
 } // HL
 
 func main() {
