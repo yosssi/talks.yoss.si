@@ -14,10 +14,9 @@ type Options struct { // HL
 func NewDog(opts *Options) *Dog { // HL
 	if opts == nil { // HL
 		opts := &Options{} // HL
-	}
-
+	} // HL
 	d := &Dog{name: opts.Name} // HL
-
+	// Some initialization processes go here. // HL
 	return d // HL
 } // HL
 
