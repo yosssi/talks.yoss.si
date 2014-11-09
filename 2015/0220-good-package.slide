@@ -9,7 +9,7 @@ http://yoss.si/
 
 * Self Introduction
 
-* About Me
+* About me
 
 - Keiji Yoshida
 - Software engineer at [[http://www.rco.recruit.co.jp/][Recruit Communications Co., Ltd.]] in Tokyo
@@ -29,7 +29,7 @@ http://yoss.si/
 
 * Goal
 
-* To Share My Knowledge of Creating a Go package successfully
+* Share my knowledge of creating a Go package successfully
 
 I have learned some good tips to create a Go package by having created many Go packages and having made a lot of mistakes.
 
@@ -37,20 +37,20 @@ This presentation is for Beginners of Go who want to create their own Go package
 
 * Follow the Standard Go Coding Style
 
-* Standard Go Coding Style
+* Standard Go coding style
 
-You should follow the standard Go coding style written in the articles below:
+We should follow the standard Go coding style written in the articles below:
 
 - [[http://golang.org/doc/effective_go.html][Effective Go - The Go Programming Language]]
 - [[https://code.google.com/p/go-wiki/wiki/CodeReviewComments][CodeReviewComments - go-wiki]]
 
-There are a lot of rules you have to follow such as:
+There are a lot of rules we have to follow such as:
 
 - Every exported (capitalized) name in a program should have a doc comment
 - The convention in Go is to use _MixedCaps_ or _mixedCaps_ rather than underscores to write multiword names
 - Error strings should not be capitalized (unless beginning with proper nouns or acronyms) or end with punctuation, since they are usually printed following other context
 
-It is difficult for us to memorize all coding rules and follow them during coding.
+*It*is*difficult*for*us*to*memorize*all*coding*rules*and*follow*them*during*coding.*
 
 * Use Golint
 
@@ -67,21 +67,47 @@ This tool checks Go source code if the source code is following the standard Go 
 goimports also organize import lines in groups with blank lines between them. The standard library packages are in the first group.
 
   package main
-  
+
   import (
       "fmt"
       "hash/adler32"
       "os"
-  
+
       "appengine/user"
       "appengine/foo"
-  
+
       "code.google.com/p/x/y"
       "github.com/foo/bar"
   )
 
-* To make a Go package extensible
+* To Make a Go Package Extensible
 
 * Export identifiers only which are needed to be so
 
 We should not export all identifiers because exported identifiers are hard to be modified.
+
+.code 0220-good-package/export_identifiers_ng.go /START OMIT/,/END OMIT/
+
+Only identifiers which are needed to be exported should be exported.
+
+.code 0220-good-package/export_identifiers_ok.go /START OMIT/,/END OMIT/
+
+* Use Options struct as a parameter
+
+Suppose we defined a `Dog` struct and its construct function as following:
+
+.code 0220-good-package/options_ng1.go /START OMIT/,/END OMIT/
+
+* Use Options struct as a parameter
+
+If we need to add an `Age` field to the `Dog` struct, we have to modify the code as below:
+
+.code 0220-good-package/options_ng2.go /START OMIT/,/END OMIT/
+
+We can not change the `NewDog` function's signature because it has beed exported.
+
+* Use Options struct as a parameter
+
+After the repetition of this kind of modification, a nightmare comes:
+
+.code 0220-good-package/options_ng3.go /START OMIT/,/END OMIT/
