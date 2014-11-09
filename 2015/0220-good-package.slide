@@ -100,7 +100,7 @@ Suppose we defined a `Dog` struct and its construct function as following:
 
 * Use Options struct as a parameter
 
-If we need to add an `Age` field to the `Dog` struct, we have to modify the code as below:
+If we need to add an `age` field to the `Dog` struct, we have to a new function as below:
 
 .code 0220-good-package/options_ng2.go /START OMIT/,/END OMIT/
 
@@ -111,3 +111,9 @@ We can not change the `NewDog` function's signature because it has beed exported
 After the repetition of this kind of modification, a nightmare comes:
 
 .code 0220-good-package/options_ng3.go /START OMIT/,/END OMIT/
+
+* Use Options struct as a parameter
+
+We can avoid adding a new function when a new field is added by using Options struct.
+
+.code 0220-good-package/options_ok.go /START OMIT/,/END OMIT/

@@ -4,16 +4,24 @@ package main
 // START OMIT
 
 type Dog struct {
-	Name    string
-	Age     int
-	Sex     string  // HL
-	Species string  // HL
-	Length  float32 // HL
-	Weight  float32 // HL
+	name    string
+	age     int
+	sex     string // HL
+	species string // HL
+}
+
+func (d *Dog) SetSex(sex string) *Dog { // HL
+	d.sex = sex // HL
+	return d    // HL
+}
+
+func (d *Dog) SetSpecies(species string) *Dog { // HL
+	d.species = species // HL
+	return d            // HL
 }
 
 func main() {
-	d := NewDog("Taro").SetAge(7).SetSex("male").SetSpecies("Dachshund").SetLength(8.5).SetWeight(20.5) // HL
+	d := NewDog("Taro").SetAge(7).SetSex("male").SetSpecies("Dachshund") // HL
 }
 
 // END OMIT

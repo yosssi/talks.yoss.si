@@ -4,11 +4,11 @@ package main
 // START OMIT
 
 type Dog struct {
-	Name string
+	name string
 }
 
 func NewDog(name string) *Dog {
-	d := &Dog{Name: name}
+	d := &Dog{name: name}
 	// Some initialization processes go here.
 	return d
 }

@@ -4,17 +4,17 @@ package main
 // START OMIT
 
 type Dog struct {
-	Name string
-	Age  int // HL
+	name string
+	age  int // HL
 }
 
 func (d *Dog) SetAge(age int) *Dog { // HL
-	d.Age = age // HL
+	d.age = age // HL
 	return d    // HL
 }
 
 func NewDog(name string) *Dog {
-	d := &Dog{Name: name}
+	d := &Dog{name: name}
 	// Some initialization processes go here.
 	return d
 }
