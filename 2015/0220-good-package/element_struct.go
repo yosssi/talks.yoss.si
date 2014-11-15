@@ -19,8 +19,6 @@ func (e *element) WriteTo(w io.Writer) (int64, error) {
 		// Load the other template and write the content. // HL
 	case "JSHelper": // HL
 		// Write its JavaScript content. // HL
-	case "xxx": // HL
-		// ... // HL
 	} // HL
 }
 
