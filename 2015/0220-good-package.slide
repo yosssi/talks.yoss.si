@@ -14,7 +14,6 @@ http://yoss.si/
 
 - Keiji Yoshida
 - Software engineer at [[http://www.rco.recruit.co.jp/][Recruit Communications Co., Ltd.]] in Tokyo
-- Using Ruby and Java at work
 - Using Go only for my private work
 
 .image 0220-good-package/keiji_yoshida.jpg
@@ -118,3 +117,23 @@ After the repetition of this kind of modification, a nightmare comes:
 We can avoid adding a new function when a new field is added by using Options struct.
 
 .code 0220-good-package/options_ok.go /START OMIT/,/END OMIT/
+
+* Divide a large struct into small structs 1/5
+
+When I started to creating an HTML template engine, I created a single struct which represents all of the template file's elements.
+
+.image 0220-good-package/element_struct.png
+
+* Divide a large struct into small structs 2/5
+
+The `element` struct became very large because it contains all element types' logic and it lost its maintainability.
+
+.code 0220-good-package/element_struct.go /START OMIT/,/END OMIT/
+
+* Divide a large struct into small structs 3/5
+
+I divided the `element` struct into small structs and created an `element` interface.
+
+.image 0220-good-package/element_interface.png
+
+
