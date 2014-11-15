@@ -35,7 +35,7 @@ I have learned some good tips to create a Go package by having created many Go p
 
 This presentation is for Beginners of Go who want to create their own Go package.
 
-* Follow the Standard Go Coding Style
+* Follow the standard Go coding style
 
 * Standard Go coding style
 
@@ -80,7 +80,7 @@ goimports also organize import lines in groups with blank lines between them. Th
       "github.com/foo/bar"
   )
 
-* To Make a Go Package Extensible
+* Make our Go packages extensible
 
 * Export identifiers only which are needed to be so
 
@@ -118,37 +118,37 @@ We can avoid adding a new function when a new field is added by using Options st
 
 .code 0220-good-package/options_ok.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small structs 1/7
+* Divide a large struct into small ones 1/7
 
 When I started to creating an HTML template engine, I created a single struct which represents all of the template file's elements.
 
 .image 0220-good-package/element_struct.png
 
-* Divide a large struct into small structs 2/7
+* Divide a large struct into small ones 2/7
 
 The `element` struct became very large because it contains all element types' processing and it lost its maintainability.
 
 .code 0220-good-package/element_struct.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small structs 3/7
+* Divide a large struct into small ones 3/7
 
-I divided the `element` struct into small structs and created an `element` interface.
+I divided the `element` struct into small ones and created an `element` interface.
 
 .image 0220-good-package/element_interface.png
 
-* Divide a large struct into small structs 4/7
+* Divide a large struct into small ones 4/7
 
 I could divide the single large processing into small processing and that made my package more maintainable.
 
 .code 0220-good-package/element_interface.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small structs 5/7
+* Divide a large struct into small ones 5/7
 
 By the way, each element has its child elements just like each HTML tag does.
 
 .code 0220-good-package/element_duplicate.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small structs 6/7
+* Divide a large struct into small ones 6/7
 
 I created a `elementBase` struct which had fields and methods common among elements.
 
@@ -156,10 +156,16 @@ I embed the `elementBase` struct into the structs which implemented the `element
 
 .image 0220-good-package/element_embed.png
 
-* Divide a large struct into small structs 7/7
+* Divide a large struct into small ones 7/7
 
 By having embedded the `elementBase` struct into the structs which implemented the `element` interface, I could get rid of the duplication of fields and methods.
 
 .code 0220-good-package/element_embed.go /START OMIT/,/END OMIT/
 
+* Give users freedom of using our package
 
+* Give users an option to call our APIs sequentially or concurrently
+
+When I released my CSS preprossing package like [[http://sass-lang.com/][Sass]] which compiles a simplified CSS format file into a pure CSS format file, I made the `Compile` function run always concurrently because it involved many I/O blocking processing.
+
+.code 0220-good-package/concurrent.go /START OMIT/,/END OMIT/
