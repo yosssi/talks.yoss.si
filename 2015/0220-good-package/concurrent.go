@@ -6,16 +6,14 @@ package main
 func Compile(path string) <-chan string {
 	chPath := make(chan string)
 
-	// Run the compilation processing always concurrently
-	// because it involves many I/O blocking processing.
-	go func() {
-		// Read the simplified CSS format file specified by the paramter,
-		// compile it into a pure CSS format data and
-		// write the result to a new file.
+	go func() { // HL
+		// Read the simplified CSS format file specified by the paramter, // HL
+		// compile it into a pure CSS format data and // HL
+		// write the result to a new file. // HL
 
-		// send the result file's path to the chPath channel.
-		chPath <- resultFilePath
-	}()
+		// Send the result file's path to the chPath channel. // HL
+		chPath <- resultFilePath // HL
+	}() // HL
 
 	return chPath
 }
