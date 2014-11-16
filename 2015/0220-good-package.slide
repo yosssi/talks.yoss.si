@@ -207,3 +207,13 @@ I added a `io.Writer` parameter to the function so that users can write the resu
 .code 0220-good-package/use-interface-parameter-reader-writer.go /START OMIT/,/END OMIT/
 
 We can make our functions much flexible and useful to users by using an interface as a function parameter.
+
+* Testing
+
+* Don't write test codes last, do in parallel with creating a package
+
+It is very difficult to concentrate on writing only test codes.
+
+Writing test codes in parallel with creating a package is a good strategy to keep up motivation to write test codes.
+
+
