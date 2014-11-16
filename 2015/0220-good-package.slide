@@ -238,5 +238,21 @@ By defining a global variable which has value of os.Exit and replacing it with a
 
 .code 0220-good-package/replace_global_var2_test.go /START OMIT/,/END OMIT/
 
+* Table driven tests
 
+[[https://code.google.com/p/go-wiki/wiki/TableDrivenTests][Table driven tests]] is useful to write many test cases simply.
 
+.code 0220-good-package/table_driven_tests_test.go /START OMIT/,/END OMIT/
+
+* Test our Go code automatically on CI services
+
+Linux
+
+- [[http://wercker.com/][wercker]]
+- [[https://drone.io/][drone.io]]
+- [[https://travis-ci.org/][Travis CI]]
+- [[https://circleci.com/][CircleCI]]
+
+Windows
+
+- [[https://ci.appveyor.com][AppVeyor]]
