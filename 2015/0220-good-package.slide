@@ -184,4 +184,26 @@ Uses can choose to call the function sequentially or concurrently.
 
 .code 0220-good-package/sequential_concurrent.go /START OMIT/,/END OMIT/
 
+* Use an interface as a function parameter 1/3
 
+The precedent `Compile` function gets a file path as a parameter and load the file specified by the parameter.
+
+.code 0220-good-package/use-interface-parameter-path.go /START OMIT/,/END OMIT/
+
+We can not load binary data on memory instead of a file on disk by using this function because all it can get is only a file path.
+
+* Use an interface as a function parameter 2/3
+
+I changed the function parameter from the file path string to `io.Reader` so that users can pass the function any data they want to load and compile.
+
+.code 0220-good-package/use-interface-parameter-reader.go /START OMIT/,/END OMIT/
+
+The `Compile` function writes the result data only to a file on disk. Uses can not write the result data to other place.
+
+* Use an interface as a function parameter 3/3
+
+I added a `io.Writer` parameter to the function so that users can write the result data to anywhere they like.
+
+.code 0220-good-package/use-interface-parameter-reader-writer.go /START OMIT/,/END OMIT/
+
+We can make our functions much flexible and useful to users by using an interface as a function parameter.
