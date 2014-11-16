@@ -188,7 +188,7 @@ Uses can choose to call the function sequentially or concurrently.
 
 The precedent `Compile` function gets a file path as a parameter and load the file specified by the parameter.
 
-.code 0220-good-package/use-interface-parameter-path.go /START OMIT/,/END OMIT/
+.code 0220-good-package/use_interface_parameter_path.go /START OMIT/,/END OMIT/
 
 We can not load binary data on memory instead of a file on disk by using this function because all it can get is only a file path.
 
@@ -196,7 +196,7 @@ We can not load binary data on memory instead of a file on disk by using this fu
 
 I changed the function parameter from the file path string to `io.Reader` so that users can pass the function any data they want to load and compile.
 
-.code 0220-good-package/use-interface-parameter-reader.go /START OMIT/,/END OMIT/
+.code 0220-good-package/use_interface_parameter_reader.go /START OMIT/,/END OMIT/
 
 The `Compile` function writes the result data only to a file on disk. Uses can not write the result data to other place.
 
@@ -204,7 +204,7 @@ The `Compile` function writes the result data only to a file on disk. Uses can n
 
 I added a `io.Writer` parameter to the function so that users can write the result data to anywhere they like.
 
-.code 0220-good-package/use-interface-parameter-reader-writer.go /START OMIT/,/END OMIT/
+.code 0220-good-package/use_interface_parameter_reader_writer.go /START OMIT/,/END OMIT/
 
 We can make our functions much flexible and useful to users by using an interface as a function parameter.
 
@@ -221,5 +221,22 @@ Writing test codes in parallel with creating a package is a good strategy to kee
 - To detect the regression when we modify our package
 - To keep up with the update of Go language's version and packages' one which our package depends on
 - To detect the race condition in our package
+
+* Replacement of a global variable during testing 1/2
+
+Replacing a global variable's value with another value is helpful to accomplish 100% of the test coverage.
+
+For example, we can not test the block in which `os.Exit` is called because it terminates the testing process.
+
+.code 0220-good-package/replace_global_var1.go /START OMIT/,/END OMIT/
+
+* Replacement of a global variable during testing 2/2
+
+By defining a global variable which has value of os.Exit and replacing it with a function which does not terminate the process, we can test the block in which `os.Exit` was originally called.
+
+.code 0220-good-package/replace_global_var2.go /START OMIT/,/END OMIT/
+
+.code 0220-good-package/replace_global_var2_test.go /START OMIT/,/END OMIT/
+
 
 
