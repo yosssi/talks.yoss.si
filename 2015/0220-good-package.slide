@@ -104,7 +104,7 @@ If we need to add an `age` field to the `Dog` struct, we have to create a new fu
 
 .code 0220-good-package/options_ng2.go /START OMIT/,/END OMIT/
 
-We can not change the `NewDog` function's signature because it has beed exported.
+We can not change the `NewDog` function's signature because it has been exported.
 
 * Use Options struct as a parameter 3/4
 
