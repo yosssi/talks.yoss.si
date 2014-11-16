@@ -216,4 +216,10 @@ It is very difficult to concentrate on writing only test codes.
 
 Writing test codes in parallel with creating a package is a good strategy to keep up motivation to write test codes.
 
+* We should aim to accomplish 100% of the test coverage
+
+- To detect the regression when we modify our package
+- To keep up with the update of Go language's version and packages' one which our package depends on
+- To detect the race condition in our package
+
 
