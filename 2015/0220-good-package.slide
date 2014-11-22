@@ -18,28 +18,28 @@ http://yoss.si/
 
 .image 0220-good-package/keiji_yoshida.jpg
 
-* Experience of Go
+* Experience with Go
 
-- Started using Go in the beginning of 2014
-- [[https://github.com/martini-contrib][Became a contributor]] to [[http://martini.codegangsta.io/][Martini]] which is a WAF for Go in April 2014
-- [[http://slides.yoss.si/gocon/martini.html#/][Gave a presentation about Martini]] at [[http://connpass.com/event/6370/][Go Conference 2014 spring]] in Tokyo in May 2014
+- Started using Go at the beginning of 2014
+- [[https://github.com/martini-contrib][Became a contributor]] to [[http://martini.codegangsta.io/][Martini]], which is a WAF for Go
+- [[http://slides.yoss.si/gocon/martini.html#/][Gave a presentation about Martini]] at a [[http://connpass.com/event/6370/][Go Conference]] in Tokyo in May 2014
 - Created some packages for building a web application in Go
 .link https://github.com/yosssi/ace Ace - HTML template engine for Go
 .link https://github.com/yosssi/gcss GCSS - Pure Go CSS Preprocessor
 
 * Goal
 
-* Share my knowledge of creating a Go package successfully
+* Share my knowledge of creating a successful Go package
 
-I have learned some good tips to create a Go package by having created many Go packages and having made a lot of mistakes.
+I have learned some good tips for creating a Go package through trial and error.
 
-This presentation is for Beginners of Go who want to create their own Go package.
+This presentation is for beginners of Go who want to create their own Go package.
 
-* Follow the standard Go coding style
+* Following the standard Go coding style
 
 * Standard Go coding style
 
-We should follow the standard Go coding style written in the articles below:
+We should follow the standard Go coding style as written in the articles below:
 
 - [[http://golang.org/doc/effective_go.html][Effective Go - The Go Programming Language]]
 - [[https://code.google.com/p/go-wiki/wiki/CodeReviewComments][CodeReviewComments - go-wiki]]
@@ -50,17 +50,17 @@ There are a lot of rules we have to follow such as:
 - The convention in Go is to use _MixedCaps_ or _mixedCaps_ rather than underscores to write multiword names
 - Error strings should not be capitalized (unless beginning with proper nouns or acronyms) or end with punctuation, since they are usually printed following other context
 
-*It*is*difficult*for*us*to*memorize*all*coding*rules*and*follow*them*during*coding.*
+*It*is*difficult*to*memorize*all*coding*rules*and*follow*them*during*coding.*
 
-* Use Golint
+* Using Golint
 
 [[https://github.com/golang/lint][Golint]] is a linter for Go source code.
 
-This tool checks Go source code if the source code is following the standard Go coding style or not.
+This tool checks Go source code to see if the source code is following the standard Go coding style or not.
 
 .image 0220-good-package/golint.png
 
-* Use goimports instead of gofmt
+* Using goimports instead of gofmt
 
 [[http://godoc.org/code.google.com/p/go.tools/cmd/goimports][goimports]] acts the same as gofmt but in addition to code formatting, it also updates Go import lines, adds missing ones and removes unreferenced ones.
 
@@ -80,153 +80,153 @@ goimports also organize import lines in groups with blank lines between them. Th
       "github.com/foo/bar"
   )
 
-* Make our Go packages extensible
+* Making our Go packages extensible
 
-* Export identifiers only which are needed to be so
+* Exporting identifiers only when needed
 
-We should not export all identifiers because exported identifiers are hard to be modified.
+We should not export all identifiers because exported identifiers are difficult to modify
 
 .code 0220-good-package/export_identifiers_ng.go /START OMIT/,/END OMIT/
 
-Only identifiers which are needed to be exported should be exported.
+Only export identifiers when necessary.
 
 .code 0220-good-package/export_identifiers_ok.go /START OMIT/,/END OMIT/
 
-* Use Options struct as a parameter 1/4
+* Using Options struct as a parameter 1/4
 
-Suppose we defined a `Dog` struct and its construct function as following:
+Suppose we define a `Dog` struct and its construct function as following:
 
 .code 0220-good-package/options_ng1.go /START OMIT/,/END OMIT/
 
-* Use Options struct as a parameter 2/4
+* Using Options struct as a parameter 2/4
 
 If we need to add an `age` field to the `Dog` struct, we have to create a new function:
 
 .code 0220-good-package/options_ng2.go /START OMIT/,/END OMIT/
 
-We can not change the `NewDog` function's signature because it has been exported.
+We cannot change the `NewDog` function's signature because it has been exported.
 
-* Use Options struct as a parameter 3/4
+* Using Options struct as a parameter 3/4
 
-After the repetition of this kind of modification, a nightmare comes:
+After repeating this kind of modification, disaster strikes:
 
 .code 0220-good-package/options_ng3.go /START OMIT/,/END OMIT/
 
-* Use Options struct as a parameter 4/4
+* Using Options struct as a parameter 4/4
 
 We can avoid adding a new function when a new field is added by using Options struct.
 
 .code 0220-good-package/options_ok.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small ones 1/7
+* Dividing a larger struct into smaller ones 1/7
 
-When I started to creating an HTML template engine, I created a single struct which represents all of the template file's elements.
+When I started creating an HTML template engine, I created a single struct representing all of the template file's elements.
 
 .image 0220-good-package/element_struct.png
 
-* Divide a large struct into small ones 2/7
+* Dividing a larger struct into smaller ones 2/7
 
-The `element` struct became very large because it contains all element types' processing and it lost its maintainability.
+The `element` struct became very large because it contained all element types' processing and lost its maintainability.
 
 .code 0220-good-package/element_struct.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small ones 3/7
+* Dividing a larger struct into smaller ones 3/7
 
-I divided the `element` struct into small ones and created an `element` interface.
+I divided the `element` struct into smaller ones and created an `element` interface.
 
 .image 0220-good-package/element_interface.png
 
-* Divide a large struct into small ones 4/7
+* Dividing a larger struct into smaller ones 4/7
 
-I could divide the single large processing into small processing and that made my package more maintainable.
+I could divide the single large processing into smaller processing that made my package more maintainable.
 
 .code 0220-good-package/element_interface.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small ones 5/7
+* Dividing a larger struct into smaller ones 5/7
 
-By the way, each element has its child elements just like each HTML tag does.
+In addition, each element has its child elements just like each HTML tag does.
 
 .code 0220-good-package/element_duplicate.go /START OMIT/,/END OMIT/
 
-* Divide a large struct into small ones 6/7
+* Dividing a larger struct into smaller ones 6/7
 
-I created a `elementBase` struct which had fields and methods common among elements.
+I created an `elementBase` struct which had fields and methods common among elements.
 
-I embed the `elementBase` struct into the structs which implemented the `element` interface.
+I embedded the `elementBase` struct into the structs which implemented the `element` interface.
 
 .image 0220-good-package/element_embed.png
 
-* Divide a large struct into small ones 7/7
+* Dividing a larger struct into smaller ones 7/7
 
-By having embedded the `elementBase` struct into the structs which implemented the `element` interface, I could get rid of the duplication of fields and methods.
+By having embedded the `elementBase` struct into the structs which implemented the `element` interface, I could get rid of the duplicated fields and methods.
 
 .code 0220-good-package/element_embed.go /START OMIT/,/END OMIT/
 
-* Give users freedom of using our package
+* Giving users the freedom of using our package
 
-* Give users an option to call our APIs sequentially or concurrently 1/3
+* Giving users the option to call APIs sequentially or concurrently 1/3
 
-When I released my CSS preprossing package like [[http://sass-lang.com/][Sass]] which compiles a simplified CSS format file into a pure CSS format file, I made the `Compile` function run always concurrently because it involved many I/O blocking processing.
+When I released my CSS preprocessing package like [[http://sass-lang.com/][Sass]] which compiles a simplified CSS format file into a pure CSS format file, I made the `Compile` function always run concurrently because it involved many I/O blocking processes.
 
 .code 0220-good-package/concurrent.go /START OMIT/,/END OMIT/
 
-But I noticed that we could not use this function sequentially if we wanted to do so.
+But I noticed we could not use this function sequentially if we wanted to do so.
 
-* Give users an option to call our APIs sequentially or concurrently 2/3
+* Giving users the option to call APIs sequentially or concurrently 2/3
 
-I changed the function to run always sequentially.
+I changed the function to always run sequentially.
 
 .code 0220-good-package/sequential.go /START OMIT/,/END OMIT/
 
-* Give users an option to call our APIs sequentially or concurrently 3/3
+* Giving users the option to call APIs sequentially or concurrently 3/3
 
-Uses can choose to call the function sequentially or concurrently.
+Users can choose to call the function sequentially or concurrently.
 
 .code 0220-good-package/sequential_concurrent.go /START OMIT/,/END OMIT/
 
-* Use an interface as a function parameter 1/3
+* Using an interface as a function parameter 1/3
 
 The precedent `Compile` function gets a file path as a parameter and load the file specified by the parameter.
 
 .code 0220-good-package/use_interface_parameter_path.go /START OMIT/,/END OMIT/
 
-We can not load binary data on memory instead of a file on disk by using this function because all it can get is only a file path.
+We cannot load binary data onto memory instead of a file on disk using this function because all it can get is a file path.
 
-* Use an interface as a function parameter 2/3
+* Using an interface as a function parameter 2/3
 
-I changed the function parameter from the file path string to `io.Reader` so that users can pass the function any data they want to load and compile.
+I changed the function parameter from the file path string to `io.Reader` so that users can pass to the function any data they want to load and compile.
 
 .code 0220-good-package/use_interface_parameter_reader.go /START OMIT/,/END OMIT/
 
-The `Compile` function writes the result data only to a file on disk. Uses can not write the result data to other place.
+The `Compile` function writes the result data only to a file on disk. Users cannot write the result data to other locations.
 
-* Use an interface as a function parameter 3/3
+* Using an interface as a function parameter 3/3
 
-I added a `io.Writer` parameter to the function so that users can write the result data to anywhere they like.
+I added an `io.Writer` parameter to the function so that users can write the result data to anywhere they like.
 
 .code 0220-good-package/use_interface_parameter_reader_writer.go /START OMIT/,/END OMIT/
 
-We can make our functions much flexible and useful to users by using an interface as a function parameter.
+We can make our functions much more flexible and useful to users by using an interface as a function parameter.
 
 * Testing
 
-* Don't write test codes last, do in parallel with creating a package
+* Don't write test codes last, but write them while creating a package
 
 It is very difficult to concentrate on writing only test codes.
 
-Writing test codes in parallel with creating a package is a good strategy to keep up motivation to write test codes.
+Writing test codes along with creating a package is a good strategy to maintain motivation for writing test codes.
 
 * We should aim to accomplish 100% of the test coverage
 
 - To detect the regression when we modify our package
-- To keep up with the update of Go language's version and packages' one which our package depends on
+- To keep up with the updated versions of Go language and the packages which our package depends on
 - To detect the race condition in our package
 
-* Replacement of a global variable during testing 1/2
+* Replacing a global variable during testing 1/2
 
-Replacing a global variable's value with another value is helpful to accomplish 100% of the test coverage.
+Replacing a global variable's value with another value is helpful in accomplishing 100% of the test coverage.
 
-For example, we can not test the block in which `os.Exit` is called because it terminates the testing process.
+For example, we cannot test the block which has `os.Exit` because it terminates the testing process.
 
 .code 0220-good-package/replace_global_var1.go /START OMIT/,/END OMIT/
 
@@ -240,11 +240,11 @@ By defining a global variable which has value of os.Exit and replacing it with a
 
 * Table driven tests
 
-[[https://code.google.com/p/go-wiki/wiki/TableDrivenTests][Table driven tests]] is useful to write many test cases simply.
+[[https://code.google.com/p/go-wiki/wiki/TableDrivenTests][Table driven tests]] are useful for writing many test cases in simple order.
 
 .code 0220-good-package/table_driven_tests_test.go /START OMIT/,/END OMIT/
 
-* Test our Go code automatically on CI services
+* Testing our Go code automatically on CI services
 
 Linux
 
