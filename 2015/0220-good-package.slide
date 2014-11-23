@@ -64,7 +64,7 @@ This tool checks Go source code to see if the source code is following the stand
 
 [[http://godoc.org/code.google.com/p/go.tools/cmd/goimports][goimports]] acts the same as gofmt but in addition to code formatting, it also updates Go import lines, adds missing ones and removes unreferenced ones.
 
-goimports also organize import lines in groups with blank lines between them. The standard library packages are in the first group.
+goimports also organizes import lines in groups with blank lines between them. The standard library packages are in the first group.
 
   package main
 
