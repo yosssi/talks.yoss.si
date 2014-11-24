@@ -13,7 +13,7 @@ type Options struct { // HL
 
 func NewDog(opts *Options) *Dog { // HL
 	if opts == nil { // HL
-		opts := &Options{} // HL
+		opts = &Options{} // HL
 	} // HL
 	d := &Dog{name: opts.Name} // HL
 	return d // Some initialization might be done before returning `d`. // HL
