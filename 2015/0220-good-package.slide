@@ -148,7 +148,7 @@ I could divide the single large processing into smaller processing that made my 
 
 * Dividing a larger struct into smaller ones 5/7
 
-In addition, each element has its child elements just like each HTML tag does.
+In addition, each element had its child elements just like each HTML tag did.
 
 .code 0220-good-package/element_duplicate.go /START OMIT/,/END OMIT/
 
