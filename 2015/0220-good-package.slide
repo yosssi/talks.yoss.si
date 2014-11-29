@@ -194,7 +194,7 @@ The precedent `Compile` function gets a file path as a parameter and loads the f
 
 .code 0220-good-package/use_interface_parameter_path.go /START OMIT/,/END OMIT/
 
-We cannot load binary data onto memory instead of a file on disk using this function because all it can get is a file path.
+We cannot load binary data from memory instead of a file by using this function because all it can get is a file path.
 
 * Using an interface as a function parameter 2/3
 
