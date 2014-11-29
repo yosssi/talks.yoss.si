@@ -220,12 +220,6 @@ We can make our functions much more flexible and useful to users by using an int
 - To keep up with the updated versions of Go language and the packages which our package depends on
 - To detect the race condition in our package
 
-* Don't write test codes last, but write them while creating a package
-
-It is very difficult to concentrate on writing only test codes.
-
-Writing test codes along with creating a package is a good strategy to maintain motivation for writing test codes.
-
 * Replacing a global variable during testing 1/2
 
 Replacing a global variable's value with another value is helpful in accomplishing 100% of the test coverage.
