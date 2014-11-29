@@ -244,13 +244,13 @@ By defining a global variable which has value of os.Exit and replacing it with a
 
 * Testing our Go code automatically on CI services
 
+Windows
+
+- [[https://ci.appveyor.com][AppVeyor]]
+
 Linux
 
 - [[http://wercker.com/][wercker]]
 - [[https://drone.io/][drone.io]]
 - [[https://travis-ci.org/][Travis CI]]
 - [[https://circleci.com/][CircleCI]]
-
-Windows
-
-- [[https://ci.appveyor.com][AppVeyor]]
