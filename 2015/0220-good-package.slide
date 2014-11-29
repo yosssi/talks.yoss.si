@@ -198,7 +198,7 @@ We cannot load binary data from memory instead of a file by using this function 
 
 * Using an interface as a function parameter 2/3
 
-I changed the function parameter from the file path string to `io.Reader` so that users can pass to the function any data they want to load and compile.
+I changed the function parameter from the file path string to an `io.Reader` interface so that users could pass to the function any data they wanted to load and compile.
 
 .code 0220-good-package/use_interface_parameter_reader.go /START OMIT/,/END OMIT/
 
@@ -206,7 +206,7 @@ The `Compile` function writes the result data only to a file on disk. Users cann
 
 * Using an interface as a function parameter 3/3
 
-I added an `io.Writer` parameter to the function so that users can write the result data to anywhere they like.
+I added an `io.Writer` interace parameter to the function so that users could write the result data to anywhere they liked.
 
 .code 0220-good-package/use_interface_parameter_reader_writer.go /START OMIT/,/END OMIT/
 
