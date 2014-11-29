@@ -190,7 +190,7 @@ Users can choose to call the function sequentially or concurrently.
 
 * Using an interface as a function parameter 1/3
 
-The precedent `Compile` function gets a file path as a parameter and load the file specified by the parameter.
+The precedent `Compile` function gets a file path as a parameter and loads the file specified by the parameter.
 
 .code 0220-good-package/use_interface_parameter_path.go /START OMIT/,/END OMIT/
 
