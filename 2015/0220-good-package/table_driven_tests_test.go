@@ -18,8 +18,8 @@ var testCases = []struct {
 
 func TestToUpper(t *testing.T) {
 	for _, tc := range testCases {
-		if result := ToUpper(tc.in); result != out {
-			t.Errorf("ToUpper(%q) => %q, want %q", tc.in, result, tt.out)
+		if result := ToUpper(tc.in); result != tc.out {
+			t.Errorf("ToUpper(%q) => %q, want %q", tc.in, result, tc.out)
 		}
 	}
 }
