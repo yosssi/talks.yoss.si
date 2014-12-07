@@ -23,9 +23,10 @@ http://yoss.si/
 - Started using Go at the beginning of 2014
 - [[https://github.com/martini-contrib][Became a contributor]] to [[http://martini.codegangsta.io/][Martini]], which is a WAF for Go
 - [[http://slides.yoss.si/gocon/martini.html#/][Gave a presentation about Martini]] at a [[http://connpass.com/event/6370/][Go Conference]] in Tokyo in May 2014
-- Created some packages for building a web application in Go
+- Created some packages in Go
 .link https://github.com/yosssi/ace Ace - HTML template engine for Go
 .link https://github.com/yosssi/gcss GCSS - Pure Go CSS Preprocessor
+.link https://github.com/yosssi/gmq GMQ - Pure Go MQTT Client
 
 * Goal
 
