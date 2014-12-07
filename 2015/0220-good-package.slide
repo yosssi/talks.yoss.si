@@ -255,3 +255,8 @@ Linux
 - [[https://drone.io/][drone.io]]
 - [[https://travis-ci.org/][Travis CI]]
 - [[https://circleci.com/][CircleCI]]
+
+Test Coverage Report and Statistics
+
+- [[https://coveralls.io/][Coveralls]]
+- [[https://codecov.io/][codecov]]
