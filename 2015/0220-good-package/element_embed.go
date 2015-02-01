@@ -7,7 +7,7 @@ type elementBase struct { // HL
 	children []element // HL
 } // HL
 
-func (e *elementB) Append(child element) { // HL
+func (e *elementBase) Append(child element) { // HL
 	e.children = append(e.children, child) // HL
 } // HL
 
