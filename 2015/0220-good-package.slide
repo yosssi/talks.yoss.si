@@ -207,7 +207,7 @@ The `Compile` function writes the result data only to a file on disk. Users cann
 
 * Using an interface as a function parameter 3/3
 
-I added an `io.Writer` interace parameter to the function so that users could write the result data to anywhere they liked.
+I added an `io.Writer` interface parameter to the function so that users could write the result data to anywhere they liked.
 
 .code 0220-good-package/use_interface_parameter_reader_writer.go /START OMIT/,/END OMIT/
 
